@@ -9,7 +9,15 @@ const INITIAL_STATE = {
     ]
 }
 
-export default (state = INITIAL_STATE) => {
+export default (state = INITIAL_STATE,action) => {
+    switch(action.type){
+        case "SETDATA":
+            return({
+                ...state,
+                users: [...state.users,action.user]
+            })
+
+    }
     return state;
 
 }
