@@ -12,6 +12,17 @@ const set_data = () => {
     }
 }
 
+
+const save_data = () => {
+    return (dispatch) => {
+        dispatch({
+            type: "SETDATA",
+            
+        })
+        console.log("save Data...")
+    }
+}
+
 const facebook_login = () => {
     console.log("Facebook login===>")
     return (dispatch) => {
@@ -26,9 +37,7 @@ const facebook_login = () => {
                 console.log("user==> mil gaya")
 
                 var accessToken = credential.accessToken;
-
-               
-            })
+             })
             .catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -44,5 +53,6 @@ const facebook_login = () => {
 
 export {
     set_data,
-    facebook_login
+    facebook_login,
+    save_data
 }

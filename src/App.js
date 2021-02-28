@@ -1,11 +1,12 @@
 import React from 'react'
-import './app.css'
 import Home from './pages/Home/index'
+import Quiz from './mainQuiz'
 
 function App() {
   return (
     <div className="main" >
      <Home/>
+     {/* <Quiz/> */}
     </div>
   );
 }
