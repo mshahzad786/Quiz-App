@@ -1,22 +1,26 @@
 import React from "react";
 import { connect } from 'react-redux';
-import {set_data, facebook_login} from '../../store/action'
+import {set_data, facebook_login,save_data} from '../../store/action'
 
 
 
 class Home extends React.Component{
     render(){
         console.log("Home Props===>",this.props)
+        
+        save = () => {
+            console.log()
+        }
 
         return(
             <div>
                 <h1>Home</h1>
 
-            <label htmlFor="name">email</label>
-                <input name="name" type="text" />
-            <label htmlFor="Pasword">Pasword</label>
-                <input name="Pasword" type="password">
-                <button>Save</button>
+                <input placeholder="Email" type="text"/>
+                <br/>
+                <input placeholder="Password" type="password"/>
+                <br/>
+                <button onClick={this.save}>Save</button>
 
                 {/* <button onClick={()=> this.props.set_data()} >SET DATA</button>
                 <button onClick={()=> this.props.facebook_login()} >Facebook Login</button> */}
@@ -32,7 +36,8 @@ const mapStateToProps = (state)=>({
 
 const mapDispatchToProps = (dispatch)=>({
     set_data: ()=> dispatch(set_data()),
-    facebook_login: ()=> dispatch(facebook_login())
+    facebook_login: ()=> dispatch(facebook_login()),
+    save: (save)=> dispatch(save_data(save))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
