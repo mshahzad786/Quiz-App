@@ -17,11 +17,17 @@ const save_data = () => {
     return (dispatch) => {
         dispatch({
             type: "SETDATA",
+            userInput: {
+                return(){
+                    <input type="text" placeholder="Try this" />
+                }
+            }
             
         })
-        console.log("save Data...")
+        // console.log("save Data...")
     }
 }
+
 
 const facebook_login = () => {
     console.log("Facebook login===>")
@@ -34,9 +40,10 @@ const facebook_login = () => {
                 var credential = result.credential;
                 var user = result.user;
 
-                console.log("user==> mil gaya")
 
-                var accessToken = credential.accessToken;
+                alert("user==> mil gaya", user)
+
+              
              })
             .catch((error) => {
                 var errorCode = error.code;
@@ -54,5 +61,5 @@ const facebook_login = () => {
 export {
     set_data,
     facebook_login,
-    save_data
+    save_data,
 }

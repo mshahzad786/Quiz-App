@@ -5,13 +5,16 @@ import {set_data, facebook_login,save_data} from '../../store/action'
 
 
 class Home extends React.Component{
+
+    save_name = ()=>{
+        console.log("ab chala")
+    }
+
+
+
     render(){
         console.log("Home Props===>",this.props)
-        
-        save = () => {
-            console.log()
-        }
-
+    
         return(
             <div>
                 <h1>Home</h1>
@@ -20,10 +23,9 @@ class Home extends React.Component{
                 <br/>
                 <input placeholder="Password" type="password"/>
                 <br/>
-                <button onClick={this.save}>Save</button>
 
-                {/* <button onClick={()=> this.props.set_data()} >SET DATA</button>
-                <button onClick={()=> this.props.facebook_login()} >Facebook Login</button> */}
+                <button onClick={()=> this.props.set_data(this.props.save_data())} >SET DATA</button>
+                <button onClick={()=> this.props.facebook_login()} >Facebook Login</button>
             </div>
         )
     }
@@ -35,9 +37,9 @@ const mapStateToProps = (state)=>({
 })
 
 const mapDispatchToProps = (dispatch)=>({
-    set_data: ()=> dispatch(set_data()),
+    set_data: (save_data)=> dispatch(set_data(save_data)),
     facebook_login: ()=> dispatch(facebook_login()),
-    save: (save)=> dispatch(save_data(save))
+    save_data: ()=> dispatch(save_data()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
